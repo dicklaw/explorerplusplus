@@ -15,7 +15,7 @@ const std::wstring KEY_FUNC[12] =
 
 std::optional<Accelerator> Plugins::parseAccelerator(const std::wstring &acceleratorString)
 {
-	int fi;
+	WORD fi;
 	std::vector<std::wstring> tokens;
 	boost::split(tokens, acceleratorString, boost::is_any_of(L"+"));
 
