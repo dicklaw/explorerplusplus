@@ -15,6 +15,7 @@ const std::wstring KEY_FUNC[12] =
 
 std::optional<Accelerator> Plugins::parseAccelerator(const std::wstring &acceleratorString)
 {
+	int fi;
 	std::vector<std::wstring> tokens;
 	boost::split(tokens, acceleratorString, boost::is_any_of(L"+"));
 
@@ -33,7 +34,7 @@ std::optional<Accelerator> Plugins::parseAccelerator(const std::wstring &acceler
 	{
 		boost::trim(token);
 
-		for (int fi=0; fi<12; fi++){
+		for (fi=0; fi<12; fi++){
 			if (token == KEY_FUNC[fi]) break;
 		}		
 		if(fi<12) {
@@ -76,7 +77,7 @@ std::optional<Accelerator> Plugins::parseAccelerator(const std::wstring &acceler
 	// See https://blogs.msdn.microsoft.com/oldnewthing/20040329-00/?p=40003
 	// for an explanation of why Ctrl+Alt shouldn't be used as a
 	// shortcut modifier.
-	if (key == 0 || (ctrl && alt) || /*(!ctrl && !shift && !alt)*/ || (!ctrl && shift && !alt))
+	if (key == 0 || (ctrl && alt) || /*(!ctrl && !shift && !alt) ||*/ (!ctrl && shift && !alt))
 	{
 		return std::nullopt;
 	}
