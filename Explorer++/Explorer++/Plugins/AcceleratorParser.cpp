@@ -22,10 +22,10 @@ std::optional<Accelerator> Plugins::parseAccelerator(const std::wstring &acceler
 	// There must at least be a modifier (e.g. ctrl/shift/alt), along
 	// with a key. If any of these are missing, the accelerator
 	// combination isn't valid.
-	if (tokens.size() < 2)
+	/*if (tokens.size() < 2)
 	{
 		return std::nullopt;
-	}
+	}*/
 
 	BYTE modifiers = FVIRTKEY;
 	WORD key = 0;
